@@ -1,11 +1,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Menu from './Menu';
+import './components/index.css';
+import Menu from './components/Menu';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import List from "./List"
-import PreviousLists from "./PreviousLists";
+import List from "./components/List"
+import PreviousLists from "./components/PreviousLists";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

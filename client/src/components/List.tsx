@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 import Table from 'react-bootstrap/Table';
-import {myList} from "../../server/src/Mylist"
+import {myList} from "../../../server/src/Mylist"
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -68,6 +68,11 @@ function MyList() {
         setMyList()
     }
 
+    async function delet () {
+        await deleteDB()
+        alert("List Cancelled, please go to Home Page to add new Items")
+    }
+
     async function addFinalized (items: myList[]) {
         await fetch("http://localhost:8080/addFinal", {
             body: JSON.stringify({
@@ -108,15 +113,15 @@ function MyList() {
                             <td>{item.name}</td>
                             <td>
                                 <button onClick={() => decrementItem(item, item._id)} style={{backgroundColor: 'transparent', border: 0}}>
-                                    <img src={require("./assets/images/back.png")} style={{ width: "27px", height: "26px",  }}></img>
+                                    <img src={require("../assets/images/back.png")} alt={""} style={{ width: "27px", height: "26px",  }}></img>
                                 </button>
                                 {item.quantidade}
                                 <button onClick={() => incrementItem(item)} style={{backgroundColor: 'transparent', border: 0}}>
-                                    <img src={require("./assets/images/next.png")} style={{ width: "24px", height: "24px",  }}></img>
+                                    <img src={require("../assets/images/next.png")} alt={""} style={{ width: "24px", height: "24px",  }}></img>
                                 </button>
                             </td>
                             <td>
-                                <img src={require("./assets/images/"+item.img)} style={{ width: "50px", height: "50px" }}></img>
+                                <img src={require("../assets/images/"+item.img)} alt={""} style={{ width: "50px", height: "50px" }}></img>
                             </td>
                         </tr>
                     ))
@@ -130,8 +135,7 @@ function MyList() {
                         <Button variant="primary" onClick={() => addFinalized(list)}>Finalize List</Button>
                     </Col>
                     <Col >
-                        <Button variant="primary" onClick={() => (deleteDB(),
-                            alert("List Cancelled, please go to Home Page to add new Items"))}>Cancel List</Button>
+                        <Button variant="primary" onClick={() => (delet())}>Cancel List</Button>
                     </Col>
                 </Row> : null}
             </div>

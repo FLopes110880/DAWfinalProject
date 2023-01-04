@@ -1,13 +1,12 @@
 // React imports.
 import React, {useEffect, useState} from "react";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { iItems } from '../../server/src/Items'
-import { myList } from '../../server/src/Mylist'
+import { iItems } from '../../../server/src/Items'
 
 /**
  * BaseLayout.
@@ -27,7 +26,7 @@ function Menu() {
 
     async function setMyList() {
         const response = await fetch("http://localhost:8080/listMylist")
-        const json = await response.json()
+        await response.json()
         // console.log(json)
     }
 
@@ -86,7 +85,7 @@ function Menu() {
                                         <Card.Title>{item.name}</Card.Title>
                                     </Col>
                                     <Col>
-                                        <Card.Img variant="top" src={require("./assets/images/"+item.img)} style={{ width: "100px", height: "100px" }} />
+                                        <Card.Img variant="top" src={require("../assets/images/"+item.img)} alt="" style={{ width: "100px", height: "100px" }} />
                                     </Col>
                                 </Row>
                                 <Button variant="primary" onClick={() => addMylist(item)}>Add to list</Button>

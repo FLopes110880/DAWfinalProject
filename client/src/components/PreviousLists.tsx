@@ -1,8 +1,8 @@
 // React imports.
 import React, {useEffect, useState} from "react";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import Lists from "./components/Lists"
+import NavBar from "./NavBar";
+import Footer from "./Footer";
+import Lists from "./Lists"
 /**
  * BaseLayout.
  */
