@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'normalize.css'
 import './components/index.css';
 import Menu from './components/Menu';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
