@@ -14,7 +14,7 @@ function NavBar() {
                             <Nav.Link href="/myList" >List</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="/previouslists" >Previous Lists</Nav.Link>
+                            <Nav.Link href="/previousLists" >Previous Lists</Nav.Link>
                         </Nav>
                     </div>
                 </Container>

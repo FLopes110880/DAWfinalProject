@@ -20,6 +20,8 @@ function List(props) {
     /**
      * Render().
      */
+    //o primeito items vem da linha que passa o aray de itens pelo construtor,
+    //o segundo .items vem do nome que está ba base de dados
     const items = props.items.items;
 
     return (
@@ -40,7 +42,7 @@ function List(props) {
                                                 >
                                                     <tr>
                                                         <th scope="col">#</th>
-                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Name</th>
                                                         <th scope="col">Qantity</th>
                                                     </tr>
                                                 </MDBTableHead>
