@@ -16,6 +16,12 @@ export class Mylist {
         } )
     }
 
+    /**
+     * This function returns a promise of an array of type myList, it will make a query to find all elements with
+     * a certain value in key, in this case it searches for everything because there isn't anything in parameter
+     * query, and it will return the objects that it has found during the find query, and assign what was retrieved
+     * to the promise, or it will do an error
+     * */
     public listMylist(): Promise<myList[]> {
         return new Promise((inResolve, inReject) => {
             this.db.find({},
@@ -30,9 +36,14 @@ export class Mylist {
         });
     }
 
+    /**
+     * This function will make a promise to add an object of type iItems to the database and return the object, or it will return
+     * an error, before adding it will make the object that was passed, which was of type iItems, make a new variable of type myList
+     * adding the key quantidade to it with value 1 and the insert in the query
+     * */
     public addItems (item: iItems): Promise<myList> {
         return new Promise((inResolve, inReject) => {
-            const newItem = {
+            const newItem: myList = {
                 name: item.name,
                 img: item.img,
                 quantidade: 1,
@@ -47,6 +58,7 @@ export class Mylist {
             })
         })
     }
+
 
     public deleteItemList (inID: string): Promise<void> {
         return new Promise((inResolve, inReject) => {
