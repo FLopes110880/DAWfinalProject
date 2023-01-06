@@ -59,7 +59,10 @@ export class Mylist {
         })
     }
 
-
+    /**
+     * This function will remove from the database an item that has the id that is passed as argument, after creating
+     * a promise, and it will finish the function or make an error
+     * */
     public deleteItemList (inID: string): Promise<void> {
         return new Promise((inResolve, inReject) => {
             this.db.remove({_id: inID}, {},
@@ -75,7 +78,12 @@ export class Mylist {
         })
     }
 
-
+    /**
+     * This function will create a Promise that if the item passed isn't undefined it will update the object of the
+     * that base that has the same name, after doing the query, and will change the name to the same name of the object
+     * that is being passed, the same to the image, and the variable quantidade will increment 1 to the object that
+     * was passed
+     * */
     public incrementItem (item: myList): Promise<void> {
         return new Promise((inResolve, inReject) => {
             if (item !== undefined) {
@@ -93,6 +101,12 @@ export class Mylist {
         })
     }
 
+    /**
+     * This function will create a Promise that if the item passed isn't undefined it will update the object of the
+     * that base that has the same name, after doing the query, and will change the name to the same name of the object
+     * that is being passed, the same to the image, and the variable quantidade will decrement 1 to the object that
+     * was passed
+     * */
     public decrementItem (item: myList): Promise<void> {
         return new Promise((inResolve, inReject) => {
             if (item !== undefined) {
@@ -110,6 +124,10 @@ export class Mylist {
         })
     }
 
+    /**
+     * This function will make a promise that will delete everything according to the query that is presented, in
+     * this case there isn't a query so it removes everything, because the multi is set to true
+     * */
     public deleteDB (): Promise<void> {
         return new Promise((inResolve, inReject) => {
             this.db.remove({ },{ multi: true }, (inError: Error | null) => {
